@@ -30,13 +30,13 @@ provider:
      Resource: "*"
 
 functions:
-  start-ec2:
-    handler: handler.start_ec2
-    timeout: 60
-    events:
-      - schedule: cron(0 13 * * ? *) # run at 1 PM UTC every day (9 am EST)
+#  start-ec2:
+#    handler: handler.start_ec2
+#    timeout: 60
+#    events:
+#      - schedule: cron(0 13 * * ? *) # run at 1 PM UTC every day (9 am EST)
   stop-ec2:
     handler: handler.stop_ec2
     timeout: 60
     events:
-      - schedule: cron(0 21 * * ? *) # run at 9 PM UTC every day (5 pm EST)
+      - schedule: cron(0 */1 * * ? *) # run every hours
